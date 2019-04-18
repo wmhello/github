@@ -1,0 +1,36 @@
+方式一:
+  laravel 5.5 passport plugin
+
+方式二:
+  jwt token  plugin
+
+
+passport：
+   1、安装插件
+      composer.json中配置
+      "laravel/passport": "^4.0"
+       composer update
+
+   2、配置服务提供者
+
+       Laravel\Passport\PassportServiceProvider::class,
+   3、数据迁移
+      php artisan migrate
+   4、安装客户端和生成安全令牌
+       php artisan passport:install --force
+       php artisan passport：keys  --force 
+   
+   5、去配置user模型
+      Laravel\Passport\HasApiTokens添加到User模型
+
+   6、增加路由以及修改授权方式
+     Passport::routes();
+   
+     需要将配置文件 config/auth.php 中 api 部分的授权保护项（ driver ）改为 passport 
+   7、配置令牌的有效期
+
+
+   8、安装Http请求插件
+    composer require guzzlehttp/guzzle
+   
+ 
